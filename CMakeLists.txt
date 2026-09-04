@@ -28,42 +28,38 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(PUERTO_SERIE_SIM800L C CXX ASM)
+project(SIM800L C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(PUERTO_SERIE_SIM800L
-    PUERTO_SERIE_SIM800L.c 
-    04-09-sim800.c
-    uart.c
-    sim800.c
-    )
+add_executable(SIM800L SIM800L.c )
 
-pico_set_program_name(PUERTO_SERIE_SIM800L "PUERTO_SERIE_SIM800L")
-pico_set_program_version(PUERTO_SERIE_SIM800L "0.1")
+pico_set_program_name(SIM800L "SIM800L")
+pico_set_program_version(SIM800L "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(PUERTO_SERIE_SIM800L 0)
-pico_enable_stdio_usb(PUERTO_SERIE_SIM800L 1)
+pico_enable_stdio_uart(SIM800L 0)
+pico_enable_stdio_usb(SIM800L 1)
 
 # Add the standard library to the build
-target_link_libraries(PUERTO_SERIE_SIM800L
+target_link_libraries(SIM800L
         pico_stdlib)
 
 # Add the standard include files to the build
-target_include_directories(PUERTO_SERIE_SIM800L PRIVATE
+target_include_directories(SIM800L PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(PUERTO_SERIE_SIM800L 
+target_link_libraries(SIM800L 
         pico_cyw43_arch_none  # Requerido al definir PICO_BOARD pico_w
         hardware_i2c
         hardware_uart
         hardware_irq
         )
 
-pico_add_extra_outputs(PUERTO_SERIE_SIM800L)
+pico_add_extra_outputs(SIM800L)
+

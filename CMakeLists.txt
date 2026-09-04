@@ -35,7 +35,12 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(PUERTO_SERIE_SIM800L PUERTO_SERIE_SIM800L.c )
+add_executable(PUERTO_SERIE_SIM800L
+    PUERTO_SERIE_SIM800L.c 
+    04-09-sim800.c
+    uart.c
+    sim800.c
+    )
 
 pico_set_program_name(PUERTO_SERIE_SIM800L "PUERTO_SERIE_SIM800L")
 pico_set_program_version(PUERTO_SERIE_SIM800L "0.1")
@@ -55,8 +60,10 @@ target_include_directories(PUERTO_SERIE_SIM800L PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(PUERTO_SERIE_SIM800L 
-        
+        pico_cyw43_arch_none  # Requerido al definir PICO_BOARD pico_w
+        hardware_i2c
+        hardware_uart
+        hardware_irq
         )
 
 pico_add_extra_outputs(PUERTO_SERIE_SIM800L)
-

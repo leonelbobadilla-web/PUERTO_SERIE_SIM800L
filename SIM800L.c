@@ -11,7 +11,7 @@
 #define I2C_PORT i2c0
 #define I2C_SDA 8
 #define I2C_SCL 9
-
+#if 0 // esto esta definido en otro archvio
 // UART defines
 // By default the stdout UART is `uart0`, so we will use the second one
 #define UART_ID uart1
@@ -21,7 +21,7 @@
 // Pins can be changed, see the GPIO function select table in the datasheet for information on GPIO assignments
 #define UART_TX_PIN 4
 #define UART_RX_PIN 5
-
+#endif
 // 
 static void parse_usb_command(const char *cmd) {
     if (strcmp(cmd, "senal") == 0) {
@@ -71,7 +71,8 @@ int main()
     gpio_pull_up(I2C_SDA);
     gpio_pull_up(I2C_SCL);
     // For more examples of I2C use see https://github.com/raspberrypi/pico-examples/tree/master/i2c
-
+    
+    #if 0
     // Set up our UART
     uart_init(UART_ID, BAUD_RATE);
     // Set the TX and RX pins by using the function select on the GPIO
@@ -84,7 +85,7 @@ int main()
     
     // Send out a string, with CR/LF conversions
     uart_puts(UART_ID, " Hello, UART!\n");
-    
+   #endif 
     // For more examples of UART use see https://github.com/raspberrypi/pico-examples/tree/master/uart
     
     printf("     PICO SIM800L CONTROL LAYER v1.0    \n");

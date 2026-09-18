@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(SIM800L SIM800L.c )
+add_executable(SIM800L SIM800L.c sim800.c uart.c)
 
 pico_set_program_name(SIM800L "SIM800L")
 pico_set_program_version(SIM800L "0.1")

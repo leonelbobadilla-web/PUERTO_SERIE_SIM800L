@@ -139,4 +139,3 @@ pico_add_extra_outputs(${PROJECT_NAME})
 # que detalla cómo se distribuyó el código y las variables en la memoria RAM y Flash de la Pico.
 # Te muestra exactamente cuánta memoria está ocupando cada función (main, librerías del SDK, 
 # interrupciones) y cada variable global o estática. Útil para optimizar memoria RAM/Flash.
-<

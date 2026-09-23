@@ -94,7 +94,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     hardware_irq        # 
 
     # --- Periféricos de Comunicación ---
-    # hardware_i2c      # Comunicación I2C (sensores, pantallas LCD/OLED, etc.)
+    hardware_i2c        # Comunicación I2C (sensores, pantallas LCD/OLED, etc.)
     # hardware_spi      # Comunicación SPI (tarjetas SD, pantallas TFT, etc.)
     hardware_uart       # Control avanzado de puertos UART por hardware
     # hardware_usb      # Control avanzado de USB

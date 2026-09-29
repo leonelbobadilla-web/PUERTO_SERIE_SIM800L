@@ -50,6 +50,7 @@ pico_sdk_init()
 # CONFIGURE_DEPENDS le indica a CMake que vigile la carpeta src/. 
 # Si agregas o borras un .c  CMake se reconfigura solo antes de compilar.
 file(GLOB SOURCES CONFIGURE_DEPENDS 
+    #"${CMAKE_CURRENT_LIST_DIR}/*.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/*.c"
 )
 
@@ -90,7 +91,7 @@ pico_enable_stdio_usb(${PROJECT_NAME} 1)
 target_link_libraries(${PROJECT_NAME} PRIVATE
     pico_stdlib
     
-    # --- Periféricos de hardware ---
+    # --- Periféricos de Hardware ---
     hardware_irq        # 
 
     # --- Periféricos de Comunicación ---

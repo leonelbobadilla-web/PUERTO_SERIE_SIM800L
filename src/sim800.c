@@ -31,6 +31,7 @@ void sim800_get_antenna_info(void) {
 
 void sim800_make_call(const char *number) {
     char buf[32];
+    
     snprintf(buf, sizeof(buf), "ATD%s;", number);
     sim800_send_cmd(buf);
 }
@@ -45,6 +46,9 @@ void sim800_hangup_call(void) {
 
 void sim800_send_sms(const char *number, const char *text) {
     char buf[48];
+    snprintf(buf, sizeof(buf), "AT+CMGF=1");
+    sim800_send_cmd(buf);
+    sleep_ms(200);
     snprintf(buf, sizeof(buf), "AT+CMGS=\"%s\"", number);
     sim800_send_cmd(buf);
     sleep_ms(200);
